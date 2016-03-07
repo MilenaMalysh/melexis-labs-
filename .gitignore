@@ -4,12 +4,12 @@
 /waves.shm
 /.simvision
 /lib_ami_035
-*.log
-*.key
-*.lib
-*.var
-*.dd
-*.bak
+*.[log]
+*.[key]
+*.[lib]
+*.[var]
+*.[dd]
+*.[bak]
 
 #Quartus
 *.bak

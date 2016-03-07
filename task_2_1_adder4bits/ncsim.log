@@ -1,0 +1,14 @@
+ncsim(64): 12.20-s003: (c) Copyright 1995-2013 Cadence Design Systems, Inc.
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/student/cadence/installs/INCISIV122/tools/inca/files/ncsimrc
+ncsim> run
+Amount of errors =           0
+Simulation complete via $finish(1) at time 0 FS + 512
+./adder_4bits_tb.v:35 	$finish;
+ncsim> ^C
+ncsim> exit
+ncsim: Memory Usage - 25.9M program + 53.8M data = 79.8M total
+ncsim: CPU Usage - 0.3s system + 0.6s user = 0.9s total (36.2s, 2.5% cpu)
