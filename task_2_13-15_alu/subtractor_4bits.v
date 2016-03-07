@@ -1,4 +1,6 @@
+`timescale 1ns / 1ps
 module subtractor_4bits(out_borrow, in_borrow, out_sub, in_a, in_b);
+parameter WIDTH = 4;
 output out_borrow; 
 output [WIDTH-1 : 0] out_sub;
 input in_borrow; 
@@ -7,7 +9,6 @@ input [WIDTH-1 : 0] in_a, in_b;
 wire [WIDTH-2 : 0] outs;
 genvar i;
 
-parameter WIDTH = 4;
 
 generate for (i = 0; i< WIDTH; i=i+1) 
 	begin : SUBTRACTOR_4BITS

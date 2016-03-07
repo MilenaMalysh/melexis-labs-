@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module half_subtractor (out_sub, out_borrow, in_a, in_b);
 input in_a, in_b;
 output out_borrow, out_sub;

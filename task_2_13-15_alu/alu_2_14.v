@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module alu_2_13(control, in_data1, in_data2, out_data);
+module alu_2_14(control, in_data1, in_data2, out_data);
 parameter WIDTH =4;
 input [2:0] control;
 input [WIDTH-1:0] in_data1, in_data2;

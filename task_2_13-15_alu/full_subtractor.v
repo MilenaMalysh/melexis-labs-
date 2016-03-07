@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module full_subtractor(out_borrow, in_borrow, out_sub, in_a, in_b);
 output out_borrow, out_sub;
 input in_borrow, in_a, in_b;
