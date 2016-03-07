@@ -4,11 +4,15 @@ ncsim(64): 12.20-s003: (c) Copyright 1995-2013 Cadence Design Systems, Inc.
 Relinquished control to SimVision...
 ncsim> 
 ncsim> source /home/student/cadence/installs/INCISIV122/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm multiplexor_2_7_tb.control multiplexor_2_7_tb.error_counter multiplexor_2_7_tb.i multiplexor_2_7_tb.in_data multiplexor_2_7_tb.out_data
+Created probe 1
 ncsim> run
 Amount of errors =           0
 Simulation complete via $finish(1) at time 10 NS + 0
 ./multiplexor_2_7_tb.v:32 	$finish;
 ncsim> ^C
 ncsim> exit
-ncsim: Memory Usage - 25.9M program + 53.9M data = 79.8M total
-ncsim: CPU Usage - 0.8s system + 1.1s user = 1.9s total (83.7s, 2.2% cpu)
+ncsim: Memory Usage - 25.9M program + 57.3M data = 83.2M total
+ncsim: CPU Usage - 1.3s system + 1.4s user = 2.7s total (123.9s, 2.2% cpu)

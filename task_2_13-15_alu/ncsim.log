@@ -4,21 +4,19 @@ ncsim(64): 12.20-s003: (c) Copyright 1995-2013 Cadence Design Systems, Inc.
 Relinquished control to SimVision...
 ncsim> 
 ncsim> source /home/student/cadence/installs/INCISIV122/tools/inca/files/ncsimrc
-ncsim> run
-Amount of errors =           0
-Simulation complete via $finish(1) at time 1536 NS + 0
-./alu_2_15_tb.v:46 	$finish;
-ncsim> reset
-Loaded snapshot worklib.alu_2_15_tb:module
-ncsim> database -open waves -into waves.shm -default
-Created default SHM database waves
-ncsim> probe -create -shm alu_2_15_tb.control alu_2_15_tb.error_counter alu_2_15_tb.in_data1 alu_2_15_tb.out_data1 alu_2_15_tb.out_data2 alu_2_15_tb.in_data2
+ncsim> ^C
+ncsim> exit
+ncsim: Memory Usage - 25.9M program + 54.3M data = 80.2M total
+ncsim: CPU Usage - 2.8s system + 3.7s user = 6.5s total (221.3s, 2.9% cpu)
+alu_2_15_tb.in_data1 alu_2_15_tb.in_data2 alu_2_15_tb.out_data1 alu_2_15_tb.out_data2
 Created probe 1
 ncsim> run
 Amount of errors =           0
-Simulation complete via $finish(1) at time 1536 NS + 0
+Simulation complete via $finish(1) at time 393216 NS + 0
 ./alu_2_15_tb.v:46 	$finish;
 ncsim> ^C
 ncsim> exit
-ncsim: Memory Usage - 25.9M program + 57.7M data = 83.6M total
-ncsim: CPU Usage - 1.1s system + 1.3s user = 2.4s total (103.7s, 2.4% cpu)
+...Regained control from SimVision
+-------------------------------------
+ncsim: Memory Usage - 25.9M program + 57.7M data = 83.7M total
+ncsim: CPU Usage - 2.9s system + 8.8s user = 11.7s total (218.5s, 5.3% cpu)
