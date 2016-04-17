@@ -1,9 +1,9 @@
 #Cadence-specific
-INCA_libs/
-screenshots/
-waves.shm
-.simvision/
-lib_ami_035/
+/INCA_libs
+/screenshots
+/waves.shm
+/.simvision
+/lib_ami_035
 *.log
 *.key
 *.lib
@@ -12,7 +12,6 @@ lib_ami_035/
 *.bak
 
 #Quartus
-*.bak
 *.txt
 *.qpf
 *.qsf

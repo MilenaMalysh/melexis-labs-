@@ -1,0 +1,91 @@
+*** Message Type: info ***
+When: вт січ 26 22:59:55 EET 2016
+SimVision started.
+Version: TOOL:  simvision(64)   12.20-s003
+User: student
+Host: student-virtual-machine
+Platform: Linux/x86_64/3.13.0-39-generic
+Started: вт січ 26 22:59:55 EET 2016
+Command: /home/student/cadence/installs/INCISIV122/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:student-virtual-machine:54845 -64BIT
+Work Directory: /home/student/my_melexis_projects/lab1/complex_latch_on_john_count_1_13
+ 
+*** Message Type: info ***
+When: вт січ 26 22:59:56 EET 2016
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: вт січ 26 23:00:08 EET 2016
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: вт січ 26 23:00:11 EET 2016
+Connect to Simulator
+      Design: worklib.complex_latch_on_john_count_tb:module
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:      ncsim(64)       12.20-s003
+        User: student
+        Host: student-virtual-machine
+Time Started: вт січ 26 22:59:53 EET 2016
+  Process ID: 3013
+   Directory: /home/student/my_melexis_projects/lab1/complex_latch_on_john_count_1_13
+     Command: ncsim -gui -cdslib /home/student/my_melexis_projects/lab1/complex_latch_on_john_count_1_13/cds.lib -logfile ncsim.log -errormax 15 -status worklib.complex_latch_on_john_count_tb:module
+
+ 
+*** Message Type: info ***
+When: вт січ 26 23:00:12 EET 2016
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: вт січ 26 23:00:35 EET 2016
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: вт січ 26 23:01:36 EET 2016
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: вт січ 26 23:01:44 EET 2016
+Create waveform window: "Waveform 2"
+ 
+*** Message Type: info ***
+When: вт січ 26 23:03:00 EET 2016
+Create source window: "Source Browser 1"
+ 
+*** Message Type: info ***
+When: вт січ 26 23:03:12 EET 2016
+Delete waveform window: "Waveform 2"
+ 
+*** Message Type: error ***
+When: вт січ 26 23:03:42 EET 2016
+invalid command name "::timeaxis8"
+    while executing
+"$_timeaxis convert t2exp $time"
+    (method "::WaveWindow::seeTime" body line 2)
+    invoked from within
+"seeTime [$itk_option(-markerdata) marker cget  $itk_option(-markerprimary) -time]"
+    (method "::WaveWindow::_doGotoCause" body line 55)
+    invoked from within
+"_doGotoCause $cnode"
+    ("@goto-cause" arm line 2)
+    invoked from within
+"switch -glob -- $dclickpref {
+       @no-action {
+               # Do nothing
+       }
+            @goto-cause {
+                _doGotoCause $cnode
+            }
+           ..."
+    (method "::WaveWindow::_moveCursor" body line 271)
+    invoked from within
+"::.waveWindow1 _moveCursor cursor 97 54 -double"
+    (in namespace inscope "::WaveWindow" script line 1)
+    invoked from within
+"namespace inscope ::WaveWindow {::.waveWindow1 _moveCursor cursor 97 54 -double}"
+    (command bound to event)
+ 
+*** Message Type: info ***
+When: вт січ 26 23:03:45 EET 2016
+SimVision Exit.
+ 
