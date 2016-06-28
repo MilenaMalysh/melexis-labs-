@@ -1,5 +1,6 @@
 #Cadence-specific
 INCA_libs/
+work/
 screenshots/
 waves.shm
 .simvision/
@@ -10,7 +11,6 @@ lib_ami_035/
 *.var
 *.dd
 *.bak
-*.wlf
 
 #Quartus
 *.bak
