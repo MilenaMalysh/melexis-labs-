@@ -1,7 +1,7 @@
 list:
 	@echo ""
 
-vending_machine: target=vending_machine.v vending_machine_tb.v
+vending_machine: target=vending_machine.v vending_machine_tb.sv
 vending_machine: entity=vending_machine_tb
 vending_machine: sim
 

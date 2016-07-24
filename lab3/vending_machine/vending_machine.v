@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 module vending_machine
 (
-	clk, reset_n, state_out, code_of_product_in, type_of_banknote_in, amount_of_banknote_in, product_purchasing_in, currency_strode_in,
-	busy, type_of_banknote_out, changing_out, code_of_product_out, giving_product_out
+	clk, reset_n, code_of_product_in, type_of_banknote_in, amount_of_banknote_in, product_purchasing_in, currency_strode_in,
+	busy, type_of_banknote_out, changing_out, code_of_product_out, giving_product_out, acknowledgment_money
 );
 
 
@@ -14,11 +14,11 @@ module vending_machine
 	parameter INITIAL = 0, BUSY_SET = 1, TEMP_CURR_WAIT = 2, INPUT_MONEY_CALCULATION = 3 , TEMP_STATE = 4, SUB_CHANGE = 5, SUB_BANK = 6, GIVING_PRODUCT = 7;
 	
 	localparam PRODUCTS_QUANTITY = 5;
-	parameter integer PRODUCTS_PRICES [4 : 0]   = '{5, 7, 200, 2, 235};
+	parameter reg[10:0] PRODUCTS_PRICES [4 : 0]   = '{5, 7, 200, 2, 235};
 	
 	parameter BANKNOTS_QUANTITY_AFTER_RESET = 2;
 	localparam DENOMINATION_QUANTITY = 10;
-	parameter integer DENOMINATIONS [9 : 0]   = '{500, 200, 100, 50, 20, 10, 5, 2, 1, 0};//0 - out for no appropriate baknote for change
+	parameter reg[10:0] DENOMINATIONS [9 : 0]   = '{500, 200, 100, 50, 20, 10, 5, 2, 1, 0};//0 - out for no appropriate baknote for change
 	
 	
 	
@@ -30,15 +30,15 @@ module vending_machine
 	output reg [$clog2(DENOMINATION_QUANTITY-1) : 0]type_of_banknote_out;
 	output reg [$clog2(PRODUCTS_QUANTITY)-1: 0]code_of_product_out; 
 	// Declare state register
-	output reg		[3:0]state_out;
+	output reg acknowledgment_money;
 	
 	
-	
-	integer banknots_quantity [DENOMINATION_QUANTITY-1 : 0];
+	reg [2:0]state_out;
+	reg [10:0] banknots_quantity [DENOMINATION_QUANTITY-1 : 0];
 	reg [8:0] banknote_amount [DENOMINATION_QUANTITY-1 : 0];
 	reg [$clog2(PRODUCTS_QUANTITY)-1: 0] selected_product;
 	reg [$clog2(MAX_PRICE+500)-1: 0] inserted_money_storage;
-	reg [$clog2(MAX_PRICE+500)-1: 0] temp_inserted_money;
+	
 	
 	integer i;
 	
@@ -55,6 +55,15 @@ module vending_machine
 						begin
 							banknots_quantity[i] <= BANKNOTS_QUANTITY_AFTER_RESET;//banknots quantity array initialization
 						end
+			selected_product <= 0;
+			inserted_money_storage <= 0;
+			changing_out <=0;
+			giving_product_out <=0;
+			busy<=0;
+			type_of_banknote_out <= 0;
+			code_of_product_out <= 0;
+			acknowledgment_money<=0;
+			
 			
 		end
 		else
@@ -68,11 +77,10 @@ module vending_machine
 				begin
 					selected_product <= 0;
 					inserted_money_storage <= 0;
-					temp_inserted_money <= 0;
 					changing_out <=0;
 					giving_product_out <=0;
 					busy<=0;
-			
+					acknowledgment_money<=0;
 				
 					if (product_purchasing_in)
 						state_out <= BUSY_SET;
@@ -108,7 +116,10 @@ module vending_machine
 					if (inserted_money_storage + DENOMINATIONS[type_of_banknote_in] * amount_of_banknote_in< PRODUCTS_PRICES[selected_product])
 						state_out <= TEMP_CURR_WAIT;
 					else 
+					begin
 						state_out <= TEMP_STATE;
+						acknowledgment_money<=1;
+					end
 				end
 				TEMP_STATE:
 				begin
