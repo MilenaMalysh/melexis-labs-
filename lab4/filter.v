@@ -99,7 +99,8 @@ module filter
 		end
 	
 	
-	assign shifted_accumulator = accumulator >>5;
+	//assign shifted_accumulator = accumulator >>5;
+	assign shifted_accumulator = (accumulator + {accumulator[5], {4{~accumulator[5]}}}) >>> 5;// for rounding
 	
 	
 	assign saturated_result = (shifted_accumulator[19] == 1'b1 & ~(shifted_accumulator[18] & shifted_accumulator[17])) ? 18'b100000000000000000 : (shifted_accumulator[18] == 1'b0 & (shifted_accumulator[18] | shifted_accumulator[17] )) ? 18'b011111111111111111 : shifted_accumulator[17:0];//overflow checking
