@@ -16,7 +16,7 @@ module filter
   
   //local variables
   wire shft_clock;// signal for shift
-  wire [21:0] main_MX;
+  reg [21:0] main_MX;
   wire [21:0] inv_MX;
   wire [24:0] added_result;
   wire signed[24:0] ext_inv_MX;
@@ -33,7 +33,7 @@ module filter
   
 	always @(posedge clk, negedge n_reset)
 		if (!n_reset) begin
-			shft_clock_cntr <= 4'b1111 ; 
+			shft_clock_cntr <= 4'b1110 ; 
 		end else begin
 			if (shft_clock_cntr == 4'b1110)
 				shft_clock_cntr <= 4'b0000;
@@ -43,40 +43,48 @@ module filter
 		
 		
 	
-	always @(posedge shft_clock, negedge n_reset)
+	always @(posedge clk, negedge n_reset)
 		begin
 		if (!n_reset)
 			for(i = 0; i < 11; i = i + 1)// shift register nulling 
 				shift_register[i] <= 0;
 		else
 			begin
-				shift_register[0] <= filter_in;
-				for(i = 10; i > 0; i = i - 1)
-					shift_register[i] <= shift_register[i-1];
+				if (shft_clock_cntr==4'b1110) begin
+					shift_register[0] <= filter_in;
+					for(i = 10; i > 0; i = i - 1)
+						shift_register[i] <= shift_register[i-1];
+				end
 			end
 		end
 		
 		
-		
-	assign shft_clock = (shft_clock_cntr==4'b0000)? 1 : 0;
-	assign result_clock = (shft_clock_cntr==4'b0001)? 1 : 0;
+
+	always @ *
+		begin
+			
+			case (shft_clock_cntr)
+				4'b0000: main_MX = shift_register[0];
+				4'b0001: main_MX = shift_register[0]<<1 ;
+                     		4'b0010: main_MX = shift_register[1]<<3 ;
+                     		4'b0011: main_MX = shift_register[2]<<3 ;
+                     		4'b0100: main_MX = shift_register[4]<<3 ;
+                     		4'b0101: main_MX = shift_register[4]<<1;
+                     		4'b0110: main_MX = shift_register[4] ;
+                     		4'b0111: main_MX = shift_register[5]<<4 ;
+		     		4'b1000: main_MX = shift_register[6]<<3 ;
+                     		4'b1001: main_MX = shift_register[6]<<1 ;
+                     		4'b1010: main_MX = shift_register[6] ;
+                     		4'b1011: main_MX = shift_register[8]<<3 ;
+                     		4'b1100: main_MX = shift_register[9]<<3 ;
+                     		4'b1101: main_MX = shift_register[10] ;
+				default: main_MX = shift_register[10]<<<1;
+			endcase
+		end
+
 	
 	
-	assign main_MX =  (shft_clock_cntr == 4'b0000) ? shift_register[0] :
-                     (shft_clock_cntr == 4'b0001) ? shift_register[0]<<1 :
-                     (shft_clock_cntr == 4'b0010) ? shift_register[1]<<3 :
-                     (shft_clock_cntr == 4'b0011) ? shift_register[2]<<3 :
-                     (shft_clock_cntr == 4'b0100) ? shift_register[4]<<3 :
-                     (shft_clock_cntr == 4'b0101) ? shift_register[4]<<1:
-                     (shft_clock_cntr == 4'b0110) ? shift_register[4] :
-                     (shft_clock_cntr == 4'b0111) ? shift_register[5]<<4 :
-		     (shft_clock_cntr == 4'b1000) ? shift_register[6]<<3 :
-                     (shft_clock_cntr == 4'b1001) ? shift_register[6]<<1 :
-                     (shft_clock_cntr == 4'b1010) ? shift_register[6] :
-                     (shft_clock_cntr == 4'b1011) ? shift_register[8]<<3 :
-                     (shft_clock_cntr == 4'b1100) ? shift_register[9]<<3 :
-                     (shft_clock_cntr == 4'b1101) ? shift_register[10] :
-							shift_register[10]<<<1;
+
 							
 							
 	assign inv_MX = (shft_clock_cntr >= 4'b0100 && shft_clock_cntr <= 4'b1010) ? main_MX:
@@ -85,7 +93,7 @@ module filter
 						
 	assign ext_inv_MX = $signed(inv_MX);//extended MX output
 					
-	assign added_result = (shft_clock)? $unsigned(ext_inv_MX) : ($unsigned(accumulator) + $unsigned(ext_inv_MX));
+	assign added_result = (shft_clock_cntr==4'b0000)? $unsigned(ext_inv_MX) : ($unsigned(accumulator) + $unsigned(ext_inv_MX));
 					
 					
 	always @(posedge clk, negedge n_reset)
@@ -105,12 +113,13 @@ module filter
 	
 	assign saturated_result = (shifted_accumulator[19] == 1'b1 & ~(shifted_accumulator[18] & shifted_accumulator[17])) ? 18'b100000000000000000 : (shifted_accumulator[18] == 1'b0 & (shifted_accumulator[18] | shifted_accumulator[17] )) ? 18'b011111111111111111 : shifted_accumulator[17:0];//overflow checking
 	
-	always @ (posedge result_clock, negedge n_reset)//output_register
+	always @ (posedge clk, negedge n_reset)//output_register
 		begin
 		if (!n_reset) begin
 			filter_out <= 0;
 		end
 		else begin
+		if (shft_clock_cntr==4'b0000)
           filter_out <= saturated_result;
       end
     end // Output_Register_process
