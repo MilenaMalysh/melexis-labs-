@@ -17,6 +17,6 @@ lib_ami_035/
 *.txt
 *.qpf
 *.qsf
-/incremental_db
-/output_files
-/db
+*/incremental_db
+*/output_files
+*/db

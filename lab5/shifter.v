@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module shifter(shifted_out, shift_amount_in, b_in, shift_operation_in);
 
 input [31:0] b_in;
@@ -20,10 +21,10 @@ extender extender(.extended_out(extended_out),
 						.shift_operation_in(shift_operation_in));
 
 assign mx_out1 = (shift_amount_in[4]^(~(shift_operation_in[1] | shift_operation_in[0])))? extended_out[46:0]: extended_out[62:16];
-assign mx_out2 = (shift_amount_in[4]^(~(shift_operation_in[1] | shift_operation_in[0])))? mx_out1[38:0]: mx_out1[46:8];
-assign mx_out3 = (shift_amount_in[4]^(~(shift_operation_in[1] | shift_operation_in[0])))? mx_out2[34:0]: mx_out2[38:4];
-assign mx_out4 = (shift_amount_in[4]^(~(shift_operation_in[1] | shift_operation_in[0])))? mx_out3[32:0]: mx_out3[34:2];
-assign shifted_out = (shift_amount_in[4]^(~(shift_operation_in[1] | shift_operation_in[0])))? mx_out4[31:0]: mx_out4[32:1];
+assign mx_out2 = (shift_amount_in[3]^(~(shift_operation_in[1] | shift_operation_in[0])))? mx_out1[38:0]: mx_out1[46:8];
+assign mx_out3 = (shift_amount_in[2]^(~(shift_operation_in[1] | shift_operation_in[0])))? mx_out2[34:0]: mx_out2[38:4];
+assign mx_out4 = (shift_amount_in[1]^(~(shift_operation_in[1] | shift_operation_in[0])))? mx_out3[32:0]: mx_out3[34:2];
+assign shifted_out = (shift_amount_in[0]^(~(shift_operation_in[1] | shift_operation_in[0])))? mx_out4[31:0]: mx_out4[32:1];
 
 endmodule
 

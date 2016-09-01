@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module adder(c_out, c_in, data_out, a_in, b_in);
 output c_out; 
 output [31 : 0] data_out;
