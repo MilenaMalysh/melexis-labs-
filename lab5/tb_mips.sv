@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 module tb_mips;
-localparam FILE_FOR_VERIFICATION_QUANTITY = 3;
-localparam string FILE_FOR_VERIF [0: FILE_FOR_VERIFICATION_QUANTITY - 1]   = '{"test_000.dat", "test_001.dat", "test_003.dat"};		
+localparam FILE_FOR_VERIFICATION_QUANTITY = 4;
+localparam string FILE_FOR_VERIF [0: FILE_FOR_VERIFICATION_QUANTITY - 1]   = '{"test_000.dat", "test_001.dat", "test_003.dat", "test_004.dat"};		
 parameter string PATH = "tb_sources/";	
-parameter reg [31:0] memory_address [0: FILE_FOR_VERIFICATION_QUANTITY - 1] = '{4, 4 ,4};	
-parameter reg [31:0] result [0: FILE_FOR_VERIFICATION_QUANTITY - 1] = '{21, 7, 8'h8f0ff00b};
+parameter reg [31:0] memory_address [0: FILE_FOR_VERIFICATION_QUANTITY - 1] = '{4, 4 ,4, 4};	
+parameter reg [31:0] result [0: FILE_FOR_VERIFICATION_QUANTITY - 1] = '{21, 7, 32'h8f0ff00b, 32'h0ffffffc};
 
 parameter CLK_PERIOD = 10;												
 reg clk, n_rst;

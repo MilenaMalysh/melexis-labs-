@@ -27,11 +27,9 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	shifter
 
-} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv {2 {vlog -work work -sv {D:\melexis\labs\my_labs\github\melexis-labs-\lab5\tb_mips.sv}
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv {1 {vlog -work work -sv D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module tb_mips
-** Warning: D:\melexis\labs\my_labs\github\melexis-labs-\lab5\tb_mips.sv(7): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-
 
 Top level modules:
 	tb_mips

@@ -26,6 +26,8 @@ wire [15:0] immediate;
 	assign immediate = instruction[15:0];
 	
 reg [31:0] prog_counter;
+reg [31:0] ext_pr_counter;
+reg [15:0] next_instr;
 reg [31:0] jump_address;
 reg we_are_jumping;
 
@@ -144,7 +146,10 @@ always @(*) begin
 		if (!func[5:3]) begin //shift instruction with sa
 			alu_type_of_operation = alu_inst.SHIFT;
 			alu_signed_operation = 0;
-			alu_a = shift_amount;
+			if (func[2]) 
+				alu_a = reg_a;
+			else 
+				alu_a = shift_amount;
 		end else begin //other instruction
 			alu_a = reg_a;
 			if(func[2])//logical instruction
@@ -154,11 +159,12 @@ always @(*) begin
 			end
 			else begin 
 			alu_signed_operation = 1;
-				if (func[5]^func[3]) begin //arithmetial instruction or jr
+				if (func[5]^func[3]) begin //arithmetical instruction or jr
 					alu_type_of_operation = alu_inst.ARITH;
 					we_are_jumping = func[3];
 				end else begin
 					alu_type_of_operation = alu_inst.SLT;
+					if (func[0]) alu_signed_operation = 0;
 				end
 			end
 		end
@@ -197,7 +203,9 @@ always @(*) begin
 		alu_arith_operation = 1;
 		alu_signed_operation = 0;
 		if (special[2]) begin	
-			jump_address = prog_counter + {{14{immediate[15]}}, immediate[15:0]+1, 2'b00};
+			next_instr = immediate[15:0]+1;
+			ext_pr_counter = {{14{immediate[15]}}, next_instr, 2'b00};
+			jump_address = prog_counter + ext_pr_counter;
 			we_are_jumping = zero_out^special[0];
 		end else begin
 			we_are_jumping = 1;

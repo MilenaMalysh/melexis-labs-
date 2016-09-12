@@ -30,7 +30,9 @@ parameter XOR = 2'b10;
 parameter NOR = 2'b11;
 
 input [31:0] a_in, b_in;
-reg [31:0] b_for_operation;
+//reg [31:0] b_for_operation;
+reg [32:0] b_for_operation;
+
 input [1:0] type_of_operation_in, shift_operation_in, logical_operation_in;
 input arithmetic_operation_in, signed_operation_in;
 wire substract;
@@ -40,7 +42,9 @@ output reg [31:0]alu_result_out;
 output zero_out, overflow_out;
 reg [31:0] logical_out, arith_out;
 wire [31:0] shifted_out; 
-reg signed [33:0] arith_out_ext, a_ext, b_ext; // for overflow detection
+reg sign_ext;
+//reg signed [33:0] arith_out_ext, a_ext, b_ext; // for overflow detection
+reg signed [32:0] arith_out_ext, a_ext, b_ext;
 wire [4:0] shift_amount_in;
 assign shift_amount_in = a_in[4:0];
 
@@ -56,18 +60,37 @@ shifter shifter(.shifted_out(shifted_out),
 always @(*) begin
 	case(type_of_operation_in)
 		SHIFT	: alu_result_out = shifted_out;
-		SLT	: alu_result_out = arith_out_ext[33];
+		//SLT	: alu_result_out = arith_out_ext[33];
+		SLT	: alu_result_out = arith_out_ext[32];
 		ARITH	: alu_result_out = arith_out;
 		LOGIC	: alu_result_out = logical_out;
 	endcase
 end
 
 always @ (*) begin
-  a_ext = {{2{signed_operation_in & a_in[31]}}, a_in}; // a extension 
+  a_ext = {{signed_operation_in & a_in[31]}, a_in}; // a extension 
+  /*
   b_for_operation = (substract)?(~b_in):b_in;
   //b_ext = {{2{signed_operation_in & b_for_operation[31]}}, b_for_operation}; // b extension
-  b_ext = {{2{ b_for_operation[31]}}, b_for_operation}; // b extension
+  b_ext = {{2{ signed_operation_in & substract | b_for_operation[31] & signed_operation_in}}, b_for_operation}; // b extension
   arith_out_ext = b_ext + a_ext + substract;
+
+  
+  */
+  
+  /*
+  b_ext = {{2{ signed_operation_in & substract | b_in[31] & signed_operation_in}}, b_in}; // b extension
+  b_for_operation = (substract)?(~b_ext):b_ext;
+  arith_out_ext = b_for_operation + a_ext + substract;*/
+  
+  
+  //b_ext = {{2{signed_operation_in & b_for_operation[31]}}, b_for_operation}; // b extension
+  sign_ext = signed_operation_in & b_in[31];
+  b_ext = {sign_ext, b_in}; // b extension
+  b_for_operation = (substract)?(~b_ext):b_ext;
+  arith_out_ext = b_for_operation + a_ext + substract;
+  
+  
   arith_out = arith_out_ext[31:0];
   overflow = signed_operation_in&(arith_out_ext[32]^arith_out_ext[31]);
 end
