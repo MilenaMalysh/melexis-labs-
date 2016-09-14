@@ -1,0 +1,67 @@
+D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_alu.v {1 {vlog -work work -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_alu.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module tb_alu
+
+Top level modules:
+	tb_alu
+
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_1_cycle.v {1 {vlog -work work -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_1_cycle.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module mips
+
+Top level modules:
+	mips
+
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/adder.v {1 {vlog -work work -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/adder.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module adder
+-- Compiling module full_adder
+-- Compiling module half_adder
+
+Top level modules:
+	adder
+
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/instr_memory.v {1 {vlog -work work -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/instr_memory.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module instr_memory
+
+Top level modules:
+	instr_memory
+
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/register_file.v {1 {vlog -work work -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/register_file.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module register_file
+
+Top level modules:
+	register_file
+
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv {1 {vlog -work work -sv -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module tb_mips
+
+Top level modules:
+	tb_mips
+
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/shifter.v {1 {vlog -work work -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/shifter.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module shifter
+-- Compiling module extender
+
+Top level modules:
+	shifter
+
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/data_memory.v {1 {vlog -work work -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/data_memory.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module data_memory
+
+Top level modules:
+	data_memory
+
+} {} {}} D:/melexis/labs/my_labs/github/melexis-labs-/lab5/alu.v {1 {vlog -work work -stats=none D:/melexis/labs/my_labs/github/melexis-labs-/lab5/alu.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}}

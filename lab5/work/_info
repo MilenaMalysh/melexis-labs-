@@ -1,0 +1,273 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/ProgramFiles/altera/quartus
+vadder
+Z0 !s110 1473763531
+!i10b 1
+!s100 nTKbH94a<ba80JZ=W9>253
+I;mdmifEE9l6g^a<VXk9hX0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/melexis/labs/my_labs/github/melexis-labs-/lab5
+Z3 w1473714037
+Z4 8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/adder.v
+Z5 FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/adder.v
+L0 2
+Z6 OV;L;10.4b;61
+r1
+!s85 0
+31
+Z7 !s108 1473763531.000000
+Z8 !s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/adder.v|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/adder.v|
+!i113 1
+Z10 o-work work
+valu
+R0
+!i10b 1
+!s100 a[CkXJjjQe]X[?aMAm^Sb2
+I<X@d`7?9KNoiB;^CBH@mD2
+R1
+R2
+R3
+8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/alu.v
+FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/alu.v
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+!s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/alu.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/alu.v|
+!i113 1
+R10
+vdata_memory
+R0
+!i10b 1
+!s100 D?U2HJ8z[[03Oo9B_dnB33
+IQ<a3_EzIz85jiWEkR>L>a1
+R1
+R2
+w1473762554
+8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/data_memory.v
+FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/data_memory.v
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+!s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/data_memory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/data_memory.v|
+!i113 1
+R10
+vextender
+Z11 !s110 1473763532
+!i10b 1
+!s100 LZJU]md:C8AWV4EZFC:ak3
+IS5TUG]OhCCK[B`P0PA@Yn1
+R1
+R2
+R3
+Z12 8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/shifter.v
+Z13 FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/shifter.v
+L0 34
+R6
+r1
+!s85 0
+31
+Z14 !s108 1473763532.000000
+Z15 !s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/shifter.v|
+Z16 !s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/shifter.v|
+!i113 1
+R10
+vfull_adder
+R0
+!i10b 1
+!s100 UbGMG^:f2Hd_S2NMWP92C0
+I9T^ccM<`1dG9=gNC`nBQ]3
+R1
+R2
+R3
+R4
+R5
+L0 46
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vhalf_adder
+R0
+!i10b 1
+!s100 =z:D0n[E^]1TPOh;FOD8D2
+IIU37K1mQ7?TdT@_DH<dNY0
+R1
+R2
+R3
+R4
+R5
+L0 67
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vinstr_memory
+R0
+!i10b 1
+!s100 89D`V7R>TF]]K>4MRkV<E2
+ImPiV=`>G4__k6j62G1FYN2
+R1
+R2
+w1473762653
+8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/instr_memory.v
+FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/instr_memory.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/instr_memory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/instr_memory.v|
+!i113 1
+R10
+vmips
+R11
+!i10b 1
+!s100 KK]>Ch2ET]VnR2fgc27=j0
+IUk0Hi:>DjiK?KRQzQ92=10
+R1
+R2
+Z17 w1473713932
+8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_1_cycle.v
+FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_1_cycle.v
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+!s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_1_cycle.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_1_cycle.v|
+!i113 1
+R10
+vmips_pipeline
+!s110 1473796746
+!i10b 1
+!s100 GTggNb@3GVJdNf=fLz;aV1
+Ij[bM7ZF=T4bZF9P7G_LWh3
+R1
+R2
+w1473796738
+8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_pipeline.v
+FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_pipeline.v
+L0 2
+R6
+r1
+!s85 0
+31
+!s108 1473796746.000000
+!s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_pipeline.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/mips_pipeline.v|
+!i113 1
+R10
+vregister_file
+R11
+!i10b 1
+!s100 ?j_D[^1EQ@;4oSE4Xk@_33
+IIo[F?<8jP]Z^89?6Loc4E0
+R1
+R2
+R17
+8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/register_file.v
+FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/register_file.v
+L0 1
+R6
+r1
+!s85 0
+31
+R14
+!s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/register_file.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/register_file.v|
+!i113 1
+R10
+vshifter
+R11
+!i10b 1
+!s100 Y<9lA<WSTTdL6]5NF^z_:2
+InP8ARTK>2l?:VSYO2C;9G1
+R1
+R2
+R3
+R12
+R13
+L0 2
+R6
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 1
+R10
+vtb_alu
+R11
+!i10b 1
+!s100 XUmUhA[:<k[_2FTe3mROK2
+IPe0;`ABJ6P5G63fcQINB?3
+R1
+R2
+R17
+8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_alu.v
+FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_alu.v
+L0 2
+R6
+r1
+!s85 0
+31
+R14
+!s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_alu.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_alu.v|
+!i113 1
+R10
+vtb_mips
+DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+!s110 1473796580
+!i10b 1
+!s100 D9CiFnROTNmG8]U];WR;11
+Ig5iW6HWGY:l>53S:?Czzf2
+R1
+!s105 tb_mips_sv_unit
+S1
+R2
+w1473796566
+8D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv
+FD:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv
+L0 2
+R6
+r1
+!s85 0
+31
+!s108 1473796580.000000
+!s107 D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/melexis/labs/my_labs/github/melexis-labs-/lab5/tb_mips.sv|
+!i113 1
+o-work work -sv
